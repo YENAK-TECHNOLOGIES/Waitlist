@@ -68,55 +68,23 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section with Prominent Form */}
+      {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
           <div className="space-y-6">
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl font-bold text-white text-balance">
-                Real-Time Emergency <span className="text-red-600">Response System</span>
+                Your Smart Assistant When Every Second <span className="text-red-600">Matters</span>
               </h1>
               <p className="text-xl text-gray-400 text-balance">
-                Emergency Echo connects communities with real-time emergency alerts, coordinated response protocols, and direct integration with emergency services to save lives and protect neighborhoods.
+                EmergencyEcho connects you to real-time medical guidance, verified doctors, and emergency support — all in one tap.
               </p>
             </div>
 
-            {/* Key Benefits */}
-            <div className="space-y-3 pt-4">
-              <div className="flex gap-3">
-                <span className="text-red-600 text-2xl">⚡</span>
-                <div>
-                  <p className="font-semibold text-white">Instant Real-Time Alerts</p>
-                  <p className="text-gray-500 text-sm">Get emergency notifications within seconds of incidents in your area</p>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <span className="text-red-600 text-2xl">🤝</span>
-                <div>
-                  <p className="font-semibold text-white">Community Coordination Hub</p>
-                  <p className="text-gray-500 text-sm">Connect with neighbors and verified community members for rapid response</p>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <span className="text-red-600 text-2xl">📍</span>
-                <div>
-                  <p className="font-semibold text-white">Precise Location Intelligence</p>
-                  <p className="text-gray-500 text-sm">Advanced geolocation technology to find nearest help and resources</p>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <span className="text-red-600 text-2xl">🔗</span>
-                <div>
-                  <p className="font-semibold text-white">Direct Service Integration</p>
-                  <p className="text-gray-500 text-sm">Seamless coordination with emergency services and first responders</p>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-sm text-red-500 pt-4 font-semibold">
-              🔥 LIMITED TIME OFFER: Join before March 31st for lifetime premium access!
-            </p>
+            <button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors w-fit">
+              Join EmergencyEcho Today
+            </button>
           </div>
 
           {/* Right: Form */}
@@ -131,9 +99,9 @@ export default function Home() {
             ) : (
               <div className="w-full max-w-md space-y-4 bg-gray-900/50 p-8 rounded-lg border border-gray-800">
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-bold text-white">Join the Waitlist</h2>
+                  <h2 className="text-3xl font-bold text-white">Get Early Access</h2>
                   <p className="text-gray-400">
-                    Be among the first responders to access Emergency Echo. Exclusive early-bird benefits for waitlist members.
+                    Be among the first to access EmergencyEcho and get instant medical guidance when you need it most.
                   </p>
                 </div>
                 <WaitlistForm
@@ -149,82 +117,94 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="bg-gray-900 py-16 sm:py-24">
+      {/* Problem Section */}
+      <section className="bg-gray-900 py-16 sm:py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6 text-balance">The Problem We Solve</h2>
+          <p className="text-lg text-gray-400 text-balance">
+            Every year, lives are lost not because of the illness alone — but because the right information didn't reach the right hands in time. EmergencyEcho was built to change that.
+          </p>
+        </div>
+      </section>
+
+      {/* Who Is This For - Role Selector */}
+      <section id="features" className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">
-            Why Emergency Echo?
+            Who Is This For?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Millisecond Response Times',
-                description:
-                  'Push notifications delivered instantly so help arrives faster and communities stay safer',
-              },
-              {
-                title: 'Verified Community Network',
-                description:
-                  'Connect with trusted neighbors and verified first responders in your area',
-              },
-              {
-                title: 'Privacy-First Design',
-                description:
-                  'Your location and personal data stay secure with military-grade encryption',
-              },
-              {
-                title: '24/7 Emergency Monitoring',
-                description:
-                  'Round-the-clock monitoring and alerts for all incident types in your location',
-              },
-              {
-                title: 'Multi-Channel Alerts',
-                description:
-                  'Receive notifications via push, SMS, and email for critical emergencies',
-              },
-              {
-                title: 'Professional Coordination',
-                description:
-                  'Direct API integration with 911 dispatch centers and emergency management agencies',
-              },
-            ].map((feature, i) => (
-              <div
-                key={i}
-                className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-red-600 transition-colors"
-              >
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400">{feature.description}</p>
-              </div>
-            ))}
+            {/* I'm a Patient */}
+            <div className="bg-gray-800 p-8 rounded-lg border border-gray-700 hover:border-red-600 transition-colors">
+              <h3 className="text-2xl font-bold text-white mb-4">I'm a Patient</h3>
+              <ul className="space-y-2 text-gray-400 mb-6">
+                <li>• Get instant AI-guided triage in emergencies</li>
+                <li>• Store your medical history securely (blood type, allergies, conditions)</li>
+                <li>• Connect to a verified doctor in under 5 minutes</li>
+                <li>• Step-by-step guided first aid while help is on the way</li>
+                <li>• Affordable plans starting from ₦1,000/month</li>
+              </ul>
+              <button className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-lg transition-colors">
+                Join as a Patient
+              </button>
+            </div>
+
+            {/* I'm a Doctor */}
+            <div className="bg-gray-800 p-8 rounded-lg border border-gray-700 hover:border-red-600 transition-colors">
+              <h3 className="text-2xl font-bold text-white mb-4">I'm a Doctor</h3>
+              <ul className="space-y-2 text-gray-400 mb-6">
+                <li>• Earn income through emergency micro-consultations</li>
+                <li>• Get verified and listed on the platform</li>
+                <li>• Set your own availability and manage sessions easily</li>
+                <li>• Receive structured patient data before the call starts</li>
+                <li>• Earn ₦500–₦1,000 per consultation</li>
+              </ul>
+              <button className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-lg transition-colors">
+                Join as a Doctor
+              </button>
+            </div>
+
+            {/* I'm a Nurse / Health Professional */}
+            <div className="bg-gray-800 p-8 rounded-lg border border-gray-700 hover:border-red-600 transition-colors">
+              <h3 className="text-2xl font-bold text-white mb-4">I'm a Nurse / Health Professional</h3>
+              <ul className="space-y-2 text-gray-400 mb-6">
+                <li>• Expand your reach beyond your clinic or ward</li>
+                <li>• Offer guidance and wellness support remotely</li>
+                <li>• Build a trusted profile accessible to thousands</li>
+                <li>• Earn recurring income on your own schedule</li>
+                <li>• Subscription listing from ₦3,000–₦4,000/month</li>
+              </ul>
+              <button className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-lg transition-colors">
+                Join as a Health Professional
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-16 sm:py-24">
+      <section id="how-it-works" className="bg-gray-900 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">
-            Getting Started
+            How It Works
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { step: '1', title: 'Join Waitlist', description: 'Register with your information' },
+              { step: '1', title: 'Create your account', description: 'and choose your role' },
               {
                 step: '2',
-                title: 'Verify Profile',
-                description: 'Complete identity verification',
+                title: 'Complete your profile',
+                description: 'patients upload medical history; providers get verified',
               },
               {
                 step: '3',
-                title: 'Set Preferences',
-                description: 'Configure alerts and location',
+                title: 'Activate in an emergency',
+                description: 'one tap connects everything',
               },
               {
                 step: '4',
-                title: 'Stay Safe',
-                description: 'Receive real-time emergency alerts',
+                title: 'Get guided support',
+                description: 'or earn by helping someone in crisis',
               },
             ].map((item, i) => (
               <div key={i} className="text-center">
@@ -241,60 +221,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Key Features */}
+      <section className="py-16 sm:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
+            Key Features
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {[
+              { title: 'AI Voice Assistant', description: 'hands-free guidance, no typing needed' },
+              { title: 'Digital Emergency Kit', description: 'your medical info, always accessible' },
+              { title: 'Real-Time Triage', description: 'risk assessed instantly' },
+              { title: 'Doctor On Duty', description: 'specialist available near you' },
+              { title: 'QR Code Access', description: 'responders scan to see your critical data' },
+            ].map((feature, i) => (
+              <div
+                key={i}
+                className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-red-600 transition-colors text-center"
+              >
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-400 text-sm">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why EmergencyEcho Section */}
       <section id="about" className="bg-gray-900 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-8 text-center">
-            About Emergency Echo
+            Why EmergencyEcho
           </h2>
-          <div className="space-y-6 text-gray-400">
-            <p>
-              Emergency Echo is revolutionizing how communities respond to emergencies. Our platform combines real-time alert technology, community coordination tools, and direct integration with emergency services to create a comprehensive emergency response ecosystem.
+          <div className="space-y-6 text-gray-400 text-center">
+            <p className="text-xl font-semibold text-white">
+              People don't just die from disease — they die from delays.
             </p>
             <p>
-              We believe that informed communities are safer communities. By providing instant access to emergency information and enabling coordinated community response, we're building a future where help arrives faster and everyone has the tools to protect themselves and their neighbors.
-            </p>
-            <p>
-              Our mission: To save lives through technology, community, and rapid emergency response coordination.
+              Born from a personal loss, EmergencyEcho exists to make sure no family goes through what ours did. Built for Nigeria. Built for Africa.
             </p>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="border-t border-gray-800 py-16 sm:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h2 className="text-4xl font-bold text-white">Don't Wait for an Emergency</h2>
-          <p className="text-xl text-gray-400">
-            Join thousands of community members preparing for safety. Get lifetime premium access when you join before March 31st.
-          </p>
-          <Link
-            href="#"
-            className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
-          >
-            Join the Waitlist Now
-          </Link>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="border-t border-gray-800 py-8">
+      <footer className="border-t border-gray-800 py-8 mt-16 sm:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-gray-500">
-              © 2026 Emergency Echo. All rights reserved.
+          <div className="text-center space-y-4">
+            <p className="text-gray-400">
+              EmergencyEcho by Yenak Technology — <span className="font-semibold">Your Smart Assistant When Every Second Matters</span>
             </p>
-            <div className="flex gap-6 mt-4 sm:mt-0">
-              <Link href="#" className="text-gray-500 hover:text-white transition-colors">
-                Privacy
-              </Link>
-              <Link href="#" className="text-gray-500 hover:text-white transition-colors">
-                Terms
-              </Link>
-              <Link href="#" className="text-gray-500 hover:text-white transition-colors">
-                Contact
-              </Link>
-            </div>
+            <p className="text-gray-500 text-sm">
+              © 2026 EmergencyEcho. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
