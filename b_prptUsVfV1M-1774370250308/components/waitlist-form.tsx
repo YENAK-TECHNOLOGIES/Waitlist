@@ -154,12 +154,9 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
           className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-900 focus:outline-none focus:ring-red-500 focus:border-red-500"
         >
           <option value="">Select your role</option>
-          <option value="emergency_personnel">Emergency Personnel</option>
-          <option value="first_responder">First Responder</option>
-          <option value="community_leader">Community Leader</option>
-          <option value="healthcare_provider">Healthcare Provider</option>
-          <option value="citizen">Concerned Citizen</option>
-          <option value="other">Other</option>
+          <option value="patient">Patient</option>
+          <option value="doctor">Doctor</option>
+          <option value="nurse">Nurse</option>
         </select>
       </div>
 
