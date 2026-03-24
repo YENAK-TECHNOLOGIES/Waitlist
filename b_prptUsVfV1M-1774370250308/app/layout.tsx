@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Emergency Echo - Real-Time Emergency Response System',
-  description: 'Join the waitlist for Emergency Echo - Real-time emergency alerts and coordinated response system that connects communities and saves lives.',
+  title: 'EmergencyEcho - Your Smart Assistant When Every Second Matters',
+  description: 'Join the waitlist for EmergencyEcho - Connect to real-time medical guidance, verified doctors, and emergency support. Built for Nigeria. Built for Africa.',
   generator: 'v0.app',
   icons: {
     icon: [

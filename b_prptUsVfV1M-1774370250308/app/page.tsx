@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { WaitlistForm } from '@/components/waitlist-form'
 import { WaitlistSuccess } from '@/components/waitlist-success'
 import Link from 'next/link'
@@ -13,25 +13,6 @@ interface SuccessData {
 
 export default function Home() {
   const [successData, setSuccessData] = useState<SuccessData | null>(null)
-  const [referrerName, setReferrerName] = useState<string | undefined>(undefined)
-
-  useEffect(() => {
-    // Check for referral code in URL
-    const params = new URLSearchParams(window.location.search)
-    const ref = params.get('ref')
-
-    if (ref) {
-      // Fetch referrer information
-      fetch(`/api/waitlist/referral?ref=${ref}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success) {
-            setReferrerName(data.referrerName)
-          }
-        })
-        .catch((err) => console.error('[v0] Referral fetch error:', err))
-    }
-  }, [])
 
   const handleReset = () => {
     setSuccessData(null)
@@ -105,7 +86,6 @@ export default function Home() {
                   </p>
                 </div>
                 <WaitlistForm
-                  referrerName={referrerName}
                   onSuccess={(data) => {
                     console.log('[v0] Form success:', data)
                     setSuccessData(data)
