@@ -1,9 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { Spinner } from '@/components/ui/spinner'
 
 interface WaitlistFormProps {
   referrerName?: string
@@ -17,7 +14,7 @@ interface WaitlistFormProps {
 export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
-  const [phoneNumber, setPhoneNumber] = useState('')
+  const [whatsappPhone, setWhatsappPhone] = useState('')
   const [role, setRole] = useState('')
   const [city, setCity] = useState('')
   const [loading, setLoading] = useState(false)
@@ -27,7 +24,7 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
     e.preventDefault()
     setError(null)
 
-    if (!fullName.trim() || !email.trim() || !phoneNumber.trim() || !role || !city.trim()) {
+    if (!fullName.trim() || !email.trim() || !whatsappPhone.trim() || !role || !city.trim()) {
       setError('Please fill in all fields')
       return
     }
@@ -39,8 +36,8 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
     }
 
     const phoneRegex = /^[\d\s\-\+\(\)]+$/
-    if (!phoneRegex.test(phoneNumber) || phoneNumber.replace(/\D/g, '').length < 7) {
-      setError('Please enter a valid phone number')
+    if (!phoneRegex.test(whatsappPhone) || whatsappPhone.replace(/\D/g, '').length < 7) {
+      setError('Please enter a valid WhatsApp phone number')
       return
     }
 
@@ -53,7 +50,7 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
         body: JSON.stringify({
           email,
           fullName,
-          phoneNumber,
+          whatsappPhone,
           role,
           city,
         }),
@@ -74,7 +71,7 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
 
       setFullName('')
       setEmail('')
-      setPhoneNumber('')
+      setWhatsappPhone('')
       setRole('')
       setCity('')
     } catch (err) {
@@ -88,8 +85,8 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4">
       {referrerName && (
-        <p className="text-sm text-emerald-600 font-medium bg-emerald-50 px-4 py-2 rounded-lg">
-          You were referred by <strong>{referrerName}</strong> 🎉
+        <p className="text-sm text-green-600 font-medium bg-green-50 px-4 py-2 rounded-lg">
+          You were referred by <strong>{referrerName}</strong>
         </p>
       )}
 
@@ -97,7 +94,7 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
         <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
           Full Name
         </label>
-        <Input
+        <input
           id="fullName"
           type="text"
           placeholder="John Doe"
@@ -105,7 +102,7 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
           onChange={(e) => setFullName(e.target.value)}
           required
           disabled={loading}
-          className="w-full"
+          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500"
         />
       </div>
 
@@ -113,7 +110,7 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
           Email Address
         </label>
-        <Input
+        <input
           id="email"
           type="email"
           placeholder="john@example.com"
@@ -121,29 +118,30 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
           onChange={(e) => setEmail(e.target.value)}
           required
           disabled={loading}
-          className="w-full"
+          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500"
         />
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-          Phone Number
+        <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700">
+          WhatsApp Phone Number
         </label>
-        <Input
-          id="phone"
+        <input
+          id="whatsapp"
           type="tel"
-          placeholder="+1 (555) 123-4567"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          placeholder="+234 701 234 5678"
+          value={whatsappPhone}
+          onChange={(e) => setWhatsappPhone(e.target.value)}
           required
           disabled={loading}
-          className="w-full"
+          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500"
         />
+        <p className="text-xs text-gray-500">Include country code (e.g., +234)</p>
       </div>
 
       <div className="space-y-2">
         <label htmlFor="role" className="block text-sm font-medium text-gray-700">
-          Role/Position
+          Professional Role
         </label>
         <select
           id="role"
@@ -154,9 +152,10 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
           className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-900 focus:outline-none focus:ring-red-500 focus:border-red-500"
         >
           <option value="">Select your role</option>
-          <option value="patient">Patient</option>
-          <option value="doctor">Doctor</option>
-          <option value="nurse">Nurse</option>
+          <option value="Doctor">Doctor</option>
+          <option value="Nurse">Nurse</option>
+          <option value="Patient">Patient</option>
+          <option value="Other">Other</option>
         </select>
       </div>
 
@@ -164,7 +163,7 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
         <label htmlFor="city" className="block text-sm font-medium text-gray-700">
           City/Location
         </label>
-        <Input
+        <input
           id="city"
           type="text"
           placeholder="Your city or region"
@@ -172,7 +171,7 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
           onChange={(e) => setCity(e.target.value)}
           required
           disabled={loading}
-          className="w-full"
+          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500"
         />
       </div>
 
@@ -182,20 +181,13 @@ export function WaitlistForm({ referrerName, onSuccess }: WaitlistFormProps) {
         </div>
       )}
 
-      <Button
+      <button
         type="submit"
-        disabled={loading || !fullName || !email || !phoneNumber || !role || !city}
-        className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-lg transition-colors"
+        disabled={loading || !fullName || !email || !whatsappPhone || !role || !city}
+        className="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-2 rounded-lg transition-colors"
       >
-        {loading ? (
-          <div className="flex items-center gap-2">
-            <Spinner />
-            <span>Joining Waitlist...</span>
-          </div>
-        ) : (
-          'Join the Waitlist'
-        )}
-      </Button>
+        {loading ? 'Joining Waitlist...' : 'Join the Waitlist'}
+      </button>
     </form>
   )
 }
